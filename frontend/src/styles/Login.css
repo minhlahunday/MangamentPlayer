@@ -209,3 +209,46 @@
     height: 40px;
   }
 } 
+.back-gradient-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30,64,175,0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.back-gradient-button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 24px rgba(30,64,175,0.12);
+}
+
+.back-gradient-button svg, .back-gradient-button .icon {
+  margin-right: 0.75rem;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+}
+
+.back-gradient-top-left {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .back-gradient-top-left {
+    top: 12px;
+    left: 12px;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}

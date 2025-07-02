@@ -77,13 +77,13 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="register-container">
+    <div className="register-container" style={{ position: 'relative' }}>
+      <button className="back-gradient-button back-gradient-top-left" onClick={() => navigate('/login')}>
+        <ArrowLeft size={20} style={{marginRight: 12}} />
+        Quay lại đăng nhập
+      </button>
       <div className="register-card">
         <div className="register-header">
-          <button className="back-button" onClick={() => navigate('/login')}>
-            <ArrowLeft size={20} />
-            Quay lại đăng nhập
-          </button>
           <UserPlus className="register-icon" />
           <h1>Tạo tài khoản</h1>
           <p>Tham gia cộng đồng bóng đá</p>

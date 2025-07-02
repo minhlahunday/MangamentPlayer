@@ -5,7 +5,7 @@ import { accountApi } from '../api/accountApi';
 import '../styles/Auth.css';
 import { jwtDecode } from 'jwt-decode';
 import type { JwtPayload } from 'jwt-decode';
-import { LogIn, User, Lock, UserPlus, ArrowLeft } from 'lucide-react';
+import { LogIn, User, Lock, UserPlus } from 'lucide-react';
 import '../styles/Login.css';
 
 const LoginPage: React.FC = () => {
@@ -50,14 +50,10 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="login-container">
-      <button
-        className="back-home-btn"
-        onClick={() => navigate('/')}
-        style={{ position: 'absolute', top: 24, left: 24, display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.9)', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 500, cursor: 'pointer', zIndex: 10 }}
-      >
-        <ArrowLeft size={20} />
-        Quay lại trang chủ
+    <div className="login-container" style={{ position: 'relative' }}>
+      <button className="back-gradient-button back-gradient-top-left" onClick={() => navigate('/') }>
+        <span className="icon">&larr;</span>
+        Quay lại trang Home
       </button>
       <div className="login-card">
         <div className="login-header">
