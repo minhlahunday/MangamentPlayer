@@ -5,6 +5,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  
+  
 }
 
 .header-content {
@@ -15,6 +17,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  
 }
 
 .header-brand {
@@ -65,7 +68,7 @@
 }
 
 .nav-item.active {
-  background: linear-gradient(135deg, #1e40af, #059669);
+  background: linear-gradient(135deg, #a433e6, #058096);
   color: white;
 }
 
@@ -85,7 +88,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1e40af, #059669);
+  background: linear-gradient(135deg, #a433e6, #058096);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +151,7 @@
 }
 
 .header-auth-buttons .nav-item {
-  background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+  background: linear-gradient(135deg, #a433e6 0%, #058096 100%);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -161,7 +164,7 @@
 }
 
 .header-auth-buttons .nav-item:hover {
-  background: linear-gradient(135deg, #374fc7 0%, #059669 100%);
+  background: linear-gradient(135deg, #7d2ae8 0%, #058096 100%);
   color: #fff;
   transform: translateY(-2px) scale(1.04);
 }
@@ -221,4 +224,10 @@
   .nav-item {
     padding: 0.5rem;
   }
+}
+
+body, .app-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #a433e6 0%, #058096 100%);
 }
