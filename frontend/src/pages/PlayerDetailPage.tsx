@@ -161,18 +161,13 @@ const PlayerDetailPage: React.FC = () => {
         <div className="player-detail-page">
             <div className="player-detail-container">
                 <div className="player-detail-header">
-                    <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
-                        <button onClick={handleBack} className="back-button">
-                            <ArrowLeft size={20} />
-                            Quay lại danh sách cầu thủ
-                        </button>
-                        <button onClick={() => navigate('/')} className="back-button">
-                            <ArrowLeft size={20} />
-                            Quay lại trang chủ
-                        </button>
-                    </div>
-                </div>
+                <button className="back-gradient-button back-gradient-top-left" onClick={() => navigate('/') }>
+        <span className="icon">&larr;</span>
+        Quay lại trang Home
+      </button>
 
+                </div>
+             
                 <div className="player-hero">
                     {player.image ? (
                         <img src={player.image} alt={player.playerName} className="player-image" />

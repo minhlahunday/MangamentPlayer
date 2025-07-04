@@ -592,3 +592,7 @@
   font-size: 1.18rem;
   margin-left: 0.3rem;
 }
+
+.back-gradient-button.back-gradient-top-left {
+  margin-top: 50px;
+}
