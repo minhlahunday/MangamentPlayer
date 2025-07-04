@@ -4,6 +4,7 @@ import { accountApi } from '../api/accountApi';
 import type { Account } from '../types/models';
 import { User, Lock, Calendar, Save, Eye, EyeOff } from 'lucide-react';
 import '../styles/UserProfile.css';
+import { useNavigate } from 'react-router-dom';
 
 const UserProfilePage: React.FC = () => {
   const { user } = useAuth();
@@ -16,6 +17,7 @@ const UserProfilePage: React.FC = () => {
   const [passwordData, setPasswordData] = useState({ oldPassword: '', newPassword: '', confirmPassword: '' });
   const [showPasswords, setShowPasswords] = useState({ old: false, new: false, confirm: false });
   const [message, setMessage] = useState({ type: '', text: '' });
+  const navigate = useNavigate();
 
     const fetchProfile = async () => {
     if (!user?.id) {
@@ -102,21 +104,21 @@ const UserProfilePage: React.FC = () => {
         setMessage({ type: 'error', text: 'Không tìm thấy token đăng nhập.' });
         return;
       }
-      const success = await accountApi.changePassword(user!.id, passwordData.oldPassword, passwordData.newPassword, token);
-      if (success) {
-        setMessage({ type: 'success', text: 'Đổi mật khẩu thành công! Đang đăng xuất...'});
+      const response = await accountApi.changePassword(user!.id, passwordData.oldPassword, passwordData.newPassword, token);
+      if (response && response.status === true) {
+        setMessage({ type: 'success', text: response.msg || 'Đổi mật khẩu thành công!Đang đăng xuất.....' });
         setTimeout(() => {
           localStorage.removeItem('accessToken');
           localStorage.removeItem('isAdmin');
           localStorage.removeItem('userId');
           localStorage.removeItem('username');
-          window.location.href = '/login';
+          navigate('/login');
         }, 1500);
       } else {
-        setMessage({ type: 'error', text: 'Mật khẩu hiện tại không đúng.' });
+        setMessage({ type: 'error', text: response?.msg || 'Mật khẩu hiện tại không đúng.' });
       }
-    } catch {
-      setMessage({ type: 'error', text: 'Lỗi khi đổi mật khẩu.' });
+    } catch (err: any) {
+      setMessage({ type: 'error', text: err?.response?.data?.msg || 'Lỗi khi đổi mật khẩu.' });
     }
   };
 
